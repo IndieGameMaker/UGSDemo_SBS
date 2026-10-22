@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class AuthManager : MonoBehaviour
 {
     [SerializeField] private Button _signInButton; // 로그인 버튼
+    [SerializeField] private Button _signOutButton; // 로그아웃 버튼
+    
 
     private async void Awake()
     {
@@ -27,6 +29,11 @@ public class AuthManager : MonoBehaviour
     private void OnEnable()
     {
         _signInButton.onClick.AddListener(async () => await SignInAsync());
+        _signOutButton.onClick.AddListener(() =>
+        {
+            // 로그 아웃
+            AuthenticationService.Instance.SignOut();
+        });
     }
 
     private async Task SignInAsync()
@@ -48,6 +55,12 @@ public class AuthManager : MonoBehaviour
         AuthenticationService.Instance.SignedIn += () =>
         {
             Debug.Log("익명 사용자 로그인 완료");
+        };
+        
+        // 로그아웃 이벤트
+        AuthenticationService.Instance.SignedOut += () =>
+        {
+            Debug.Log("익명 사용자 로그아웃 완료");
         };
     }
 }
