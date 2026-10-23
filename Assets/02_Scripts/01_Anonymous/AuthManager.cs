@@ -11,6 +11,9 @@ public class AuthManager : MonoBehaviour
     [SerializeField] private Button _signInButton; // 로그인 버튼
     [SerializeField] private Button _signOutButton; // 로그아웃 버튼
     [SerializeField] private TextMeshProUGUI _messageText;
+
+    [SerializeField] private Button _playerNameSaveButton;
+    [SerializeField] private TMP_InputField _playerNameIF;
     
 
     private async void Awake()
