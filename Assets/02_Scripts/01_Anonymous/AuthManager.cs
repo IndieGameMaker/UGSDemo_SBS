@@ -79,4 +79,23 @@ public class AuthManager : MonoBehaviour
             Debug.Log("세션 종료(Timeout)");
         };
     }
+    
+    // 사용자 이름 (NickName 설정)
+    // 50자까지 허용
+    // 중간 공백 불가
+    // 4자리 해시값 자동으로 붙는다. Zack => Zack#1234
+
+    private async Task SetPlayerName(string playerName)
+    {
+        try
+        {
+            await AuthenticationService.Instance.UpdatePlayerNameAsync(playerName);
+            Debug.Log($"{playerName} is Updated");
+            _messageText.text = $"{playerName} is Updated";
+        }
+        catch (AuthenticationException e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
 }
