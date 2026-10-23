@@ -39,6 +39,12 @@ public class AuthManager : MonoBehaviour
             // 로그 아웃
             AuthenticationService.Instance.SignOut();
         });
+        
+        // 플레이어 이름 저장 버튼 이벤트
+        _playerNameSaveButton.onClick.AddListener(async () =>
+        {
+            await SetPlayerName(_playerNameIF.text);
+        });
     }
 
     private async Task SignInAsync()
@@ -86,15 +92,20 @@ public class AuthManager : MonoBehaviour
     // 사용자 이름 (NickName 설정)
     // 50자까지 허용
     // 중간 공백 불가
-    // 4자리 해시값 자동으로 붙는다. Zack => Zack#1234
+    // 5자리 해시값 자동으로 붙는다. Zack => Zack#12345
 
     private async Task SetPlayerName(string playerName)
     {
         try
         {
             await AuthenticationService.Instance.UpdatePlayerNameAsync(playerName);
-            Debug.Log($"{playerName} is Updated");
-            _messageText.text = $"{playerName} is Updated";
+            
+            // 플레이어 이름 가져오기
+            // string __name = await AuthenticationService.Instance.GetPlayerNameAsync();
+            string __name = AuthenticationService.Instance.PlayerName;
+            
+            Debug.Log($"{__name} is Updated");
+            _messageText.text = $"{__name} is Updated";
         }
         catch (AuthenticationException e)
         {

@@ -461,6 +461,8 @@ MonoBehaviour:
   _signInButton: {fileID: 338957555}
   _signOutButton: {fileID: 1371440014}
   _messageText: {fileID: 1640112850}
+  _playerNameSaveButton: {fileID: 120117852}
+  _playerNameIF: {fileID: 1373637733}
 --- !u!4 &337294019
 Transform:
   m_ObjectHideFlags: 0
@@ -512,7 +514,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.29740143, y: -27.400002}
+  m_AnchoredPosition: {x: -0.2973938, y: -27.399994}
   m_SizeDelta: {x: -13.5655, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338957555
@@ -1188,7 +1190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.29740143, y: -65.600006}
+  m_AnchoredPosition: {x: -0.2973938, y: -65.600006}
   m_SizeDelta: {x: -13.5655, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1373637731
