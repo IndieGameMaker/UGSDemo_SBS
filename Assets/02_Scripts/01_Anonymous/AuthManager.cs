@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using TMPro;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class AuthManager : MonoBehaviour
 {
     [SerializeField] private Button _signInButton; // 로그인 버튼
     [SerializeField] private Button _signOutButton; // 로그아웃 버튼
+    [SerializeField] private TextMeshProUGUI _messageText;
     
 
     private async void Awake()
