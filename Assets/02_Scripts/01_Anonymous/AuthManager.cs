@@ -57,12 +57,14 @@ public class AuthManager : MonoBehaviour
         AuthenticationService.Instance.SignedIn += () =>
         {
             Debug.Log("익명 사용자 로그인 완료");
+            _messageText.text = $"Player Id: {AuthenticationService.Instance.PlayerId}";
         };
         
         // 로그아웃 이벤트
         AuthenticationService.Instance.SignedOut += () =>
         {
             Debug.Log("익명 사용자 로그아웃 완료");
+            _messageText.text = "";
         };
     }
 }

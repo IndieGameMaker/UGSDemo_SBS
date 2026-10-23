@@ -287,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AuthManager
   _signInButton: {fileID: 338957555}
   _signOutButton: {fileID: 1371440014}
+  _messageText: {fileID: 1640112850}
 --- !u!4 &337294019
 Transform:
   m_ObjectHideFlags: 0
