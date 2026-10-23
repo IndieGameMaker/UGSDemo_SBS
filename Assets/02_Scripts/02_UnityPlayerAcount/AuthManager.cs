@@ -22,6 +22,9 @@ namespace AuthUnityPlayerAccount
         {
             // UGS 초기화
             await UnityServices.InitializeAsync();
+            
+            //로그인(신규가입) 후 호출될 이벤트 연결
+            PlayerAccountService.Instance.SignedIn += OnSignedIn;            
         }
 
         private void OnEnable()
@@ -32,8 +35,10 @@ namespace AuthUnityPlayerAccount
                 await PlayerAccountService.Instance.StartSignInAsync();
             });
             
-            //로그인(신규가입) 후 호출될 이벤트 연결
-            PlayerAccountService.Instance.SignedIn += OnSignedIn;
+            _playerNameSaveButton.onClick.AddListener(async () =>
+            {
+                await SetPlayerName(_playerNameIF.text);
+            });
         }
         
         // 로그인 프로세스 호출
@@ -51,6 +56,25 @@ namespace AuthUnityPlayerAccount
         {
             await AuthenticationService.Instance.SignInWithUnityAsync(accessToken);
             Debug.Log("로그인 성공");
+        }
+        
+        private async Task SetPlayerName(string playerName)
+        {
+            try
+            {
+                await AuthenticationService.Instance.UpdatePlayerNameAsync(playerName);
+            
+                // 플레이어 이름 가져오기
+                // string __name = await AuthenticationService.Instance.GetPlayerNameAsync();
+                string __name = AuthenticationService.Instance.PlayerName;
+            
+                Debug.Log($"{__name} is Updated");
+                _messageText.text = $"{__name} is Updated";
+            }
+            catch (AuthenticationException e)
+            {
+                Debug.Log(e.Message);
+            }
         }
     }
 }
