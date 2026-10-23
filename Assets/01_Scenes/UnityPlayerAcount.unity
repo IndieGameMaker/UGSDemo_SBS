@@ -438,7 +438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 337294019}
-  - component: {fileID: 337294018}
+  - component: {fileID: 337294020}
   m_Layer: 0
   m_Name: Auth Manager
   m_TagString: Untagged
@@ -446,23 +446,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &337294018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 337294017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd6f7aa8eb814b77b1b592a81a94464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AuthManager
-  _signInButton: {fileID: 338957555}
-  _signOutButton: {fileID: 1371440014}
-  _messageText: {fileID: 1640112850}
-  _playerNameSaveButton: {fileID: 120117852}
-  _playerNameIF: {fileID: 1373637733}
 --- !u!4 &337294019
 Transform:
   m_ObjectHideFlags: 0
@@ -478,6 +461,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &337294020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337294017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c917e14a56ea54ca7b9d7dfcfbe86b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AuthUnityPlayerAccount.AuthManager
+  _signInButton: {fileID: 338957555}
+  _signOutButton: {fileID: 1371440014}
+  _playerNameSaveButton: {fileID: 120117852}
+  _messageText: {fileID: 1640112850}
+  _playerNameIF: {fileID: 1373637733}
 --- !u!1 &338957553
 GameObject:
   m_ObjectHideFlags: 0
