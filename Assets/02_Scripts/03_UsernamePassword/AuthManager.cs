@@ -34,6 +34,29 @@ namespace AuthUsernamePassword
             {
                 await SignupWithUsernamePassAsync(_userNameIF.text, _passwordIF.text);
             });
+            
+            // 로그인 이벤트 연결
+            _signinButton.onClick.AddListener(async () =>
+            {
+                await SignIn(_userNameIF.text, _passwordIF.text);
+            });
+        }
+
+        private async Task SignIn(string username, string password)
+        {
+            try
+            {
+                await AuthenticationService.Instance.SignInWithUsernamePasswordAsync(username, password);
+                Debug.Log("로그인 성공");
+            }
+            catch (AuthenticationException e)
+            {
+                Debug.LogException(e);
+            }
+            catch (RequestFailedException e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         /*
