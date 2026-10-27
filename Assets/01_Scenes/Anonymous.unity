@@ -1078,6 +1078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CloudSaveManager
   _singleDataSaveButton: {fileID: 382748614}
+  data: []
 --- !u!1 &1332537006
 GameObject:
   m_ObjectHideFlags: 0
