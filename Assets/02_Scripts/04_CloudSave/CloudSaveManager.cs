@@ -45,7 +45,11 @@ public class CloudSaveManager : MonoBehaviour
     {
         _singleDataSaveButton.onClick.AddListener(async () => await SaveSingleData());
         _multiDataSaveButton.onClick.AddListener(async () => await SaveMultiData<PlayerData>("PLAYER_DATA", _playerData));
-        _singleDataLoadButton.onClick.AddListener(async () => await LoadData());
+        _singleDataLoadButton.onClick.AddListener(async () =>
+        {
+            await LoadData();
+            await LoadData<string>("PLAYER_DATA");
+        });
     }
 
     #region 복수데이터 저장
@@ -104,7 +108,23 @@ public class CloudSaveManager : MonoBehaviour
     }
 
     #endregion
-    
+
+    #region 복수데이터 로딩
+
+    public async Task LoadData<T>(string key)
+    {
+        var hashSet = new HashSet<string> { key };
+        var result = await CloudSaveService.Instance.Data.Player.LoadAsync(hashSet);
+        result.TryGetValue(key, out var _data);
+        
+        // Json 출력
+        Debug.Log("======== 복수데이터 로딩 ========");
+        string jsonStr = JsonUtility.ToJson(_data?.Value.GetAs<PlayerData>());
+        Debug.Log(jsonStr);
+
+    }
+
+    #endregion
 }
 
 /*
