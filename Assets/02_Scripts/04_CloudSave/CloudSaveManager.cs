@@ -97,7 +97,7 @@ public class CloudSaveManager : MonoBehaviour
         {
             Debug.Log($"Level : {level.Value.GetAs<int>()}");
         }
-        if (result.TryGetValue("XP", out var xp))
+        if (result.TryGetValue("xp", out var xp))
         {
             Debug.Log($"XP : {xp.Value.GetAs<int>()}");
         }
