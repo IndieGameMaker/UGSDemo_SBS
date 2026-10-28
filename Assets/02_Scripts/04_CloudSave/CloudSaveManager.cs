@@ -79,7 +79,14 @@ public class CloudSaveManager : MonoBehaviour
     #endregion
 
     #region 싱글데이터 로드
-    
+
+    public async Task LoadData()
+    {
+        var result = await CloudSaveService.Instance.Data.Player.LoadAsync(new HashSet<string>
+        {
+            "player_name", "level", "xp"
+        });
+    }
 
     #endregion
     
