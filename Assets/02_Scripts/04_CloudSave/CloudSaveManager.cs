@@ -29,6 +29,9 @@ public class CloudSaveManager : MonoBehaviour
 {
     [SerializeField] private Button _singleDataSaveButton;
     [SerializeField] private Dictionary<string, object> data;
+
+    [Header("Player Data")]
+    [SerializeField] private PlayerData _playerData;
     
     private void Start()
     {
