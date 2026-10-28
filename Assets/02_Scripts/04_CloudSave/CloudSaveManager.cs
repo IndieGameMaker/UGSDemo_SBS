@@ -45,6 +45,7 @@ public class CloudSaveManager : MonoBehaviour
     {
         _singleDataSaveButton.onClick.AddListener(async () => await SaveSingleData());
         _multiDataSaveButton.onClick.AddListener(async () => await SaveMultiData<PlayerData>("PLAYER_DATA", _playerData));
+        _singleDataLoadButton.onClick.AddListener(async () => await LoadData());
     }
 
     #region 복수데이터 저장
@@ -91,6 +92,14 @@ public class CloudSaveManager : MonoBehaviour
         if (result.TryGetValue("player_name", out var playerName))
         {
             Debug.Log($"Player Name : {playerName.Value.GetAs<string>()}");
+        }
+        if (result.TryGetValue("level", out var level))
+        {
+            Debug.Log($"Level : {level.Value.GetAs<int>()}");
+        }
+        if (result.TryGetValue("XP", out var xp))
+        {
+            Debug.Log($"XP : {xp.Value.GetAs<int>()}");
         }
     }
 

@@ -1337,6 +1337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CloudSaveManager
   _singleDataSaveButton: {fileID: 382748614}
   _multiDataSaveButton: {fileID: 1799604379}
+  _singleDataLoadButton: {fileID: 690673573}
   data: []
   _playerData:
     name: Zack
