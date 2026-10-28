@@ -29,6 +29,7 @@ public class CloudSaveManager : MonoBehaviour
 {
     [SerializeField] private Button _singleDataSaveButton;
     [SerializeField] private Button _multiDataSaveButton;
+    [SerializeField] private Button _singleDataLoadButton;
     
     [SerializeField] private Dictionary<string, object> data;
 
@@ -86,6 +87,11 @@ public class CloudSaveManager : MonoBehaviour
         {
             "player_name", "level", "xp"
         });
+
+        if (result.TryGetValue("player_name", out var playerName))
+        {
+            Debug.Log($"Player Name : {playerName.Value.GetAs<string>()}");
+        }
     }
 
     #endregion
