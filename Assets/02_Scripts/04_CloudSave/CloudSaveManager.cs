@@ -43,8 +43,24 @@ public class CloudSaveManager : MonoBehaviour
     private void BindingButtonEvents()
     {
         _singleDataSaveButton.onClick.AddListener(async () => await SaveSingleData());
+        _multiDataSaveButton.onClick.AddListener(async () => await SaveMultiData<PlayerData>("PLAYER_DATA", _playerData));
     }
-    
+
+    #region 복수데이터 저장
+
+    private async Task SaveMultiData<T>(string key, T saveData)
+    {
+        // 딕셔너리 자료형에 저장
+        var data = new Dictionary<string, object>
+        {
+            {key, saveData}
+        };
+        
+        // 저장 메서드
+        await CloudSaveService.Instance.Data.Player.SaveAsync(data);
+    }
+    #endregion
+
     #region 싱글데이터 저장
     private async Task SaveSingleData()
     {
