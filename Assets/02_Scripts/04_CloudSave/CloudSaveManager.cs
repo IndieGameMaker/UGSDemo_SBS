@@ -121,6 +121,9 @@ public class CloudSaveManager : MonoBehaviour
         Debug.Log("======== 복수데이터 로딩 ========");
         string jsonStr = JsonUtility.ToJson(_data?.Value.GetAs<PlayerData>());
         Debug.Log(jsonStr);
+        
+        // JSON 파일을 PlayerData 구조체에 저장
+        _playerData = JsonUtility.FromJson<PlayerData>(jsonStr);
 
     }
 
