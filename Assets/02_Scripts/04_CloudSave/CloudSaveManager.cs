@@ -55,7 +55,35 @@ public class CloudSaveManager : MonoBehaviour
             await LoadData();
             await LoadData<string>("PLAYER_DATA");
         });
+        
+        // 파일 업로드
+        _fileUploadButton.onClick.AddListener(async () => await FileUploadAsync());
     }
+
+    #region 파일 업로드 & 다운로드
+
+    private async Task FileUploadAsync()
+    {
+        ScreenCapture.CaptureScreenshot("screen_shot.png");
+
+        await Task.Delay(500); // 0.5초
+        try
+        {
+            // 파일 byte array 저장
+            byte[] file = System.IO.File.ReadAllBytes("screen_shot.png");
+            // 파일 업로드
+            await CloudSaveService.Instance.Files.Player.SaveAsync("SCREEN_SHOT", file);
+            Debug.Log("파일 업로드 완료!");
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+
+    }
+
+    #endregion
+    
 
     #region 복수데이터 저장
 
