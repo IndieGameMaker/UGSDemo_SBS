@@ -1327,8 +1327,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 306.07068, y: -314}
-  m_SizeDelta: {x: 101.7069, y: 30}
+  m_AnchoredPosition: {x: 303.16617, y: -314}
+  m_SizeDelta: {x: 95.8979, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &866689453
 MonoBehaviour:
@@ -1351,7 +1351,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0, g: 0.55107546, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1459,6 +1459,9 @@ MonoBehaviour:
   _singleDataSaveButton: {fileID: 382748614}
   _multiDataSaveButton: {fileID: 1799604379}
   _singleDataLoadButton: {fileID: 690673573}
+  _fileUploadButton: {fileID: 866689453}
+  _fileDownloadButton: {fileID: 1959935684}
+  _downloadImage: {fileID: 1646774908}
   data: []
   _playerData:
     name: Zack
@@ -3164,8 +3167,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 407.78174, y: -314}
-  m_SizeDelta: {x: 101.7069, y: 30}
+  m_AnchoredPosition: {x: 412.76093, y: -314}
+  m_SizeDelta: {x: 91.7486, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1959935684
 MonoBehaviour:
@@ -3188,7 +3191,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 0.6850692, b: 0, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}

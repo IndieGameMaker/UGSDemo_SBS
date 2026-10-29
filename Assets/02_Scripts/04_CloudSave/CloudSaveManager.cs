@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Services.CloudSave;
+using Unity.Services.CloudSave.Models;
 
 [Serializable]
 public struct PlayerData
@@ -56,8 +57,9 @@ public class CloudSaveManager : MonoBehaviour
             await LoadData<string>("PLAYER_DATA");
         });
         
-        // 파일 업로드
+        // 파일 업로드 및 다운로드
         _fileUploadButton.onClick.AddListener(async () => await FileUploadAsync());
+        _fileDownloadButton.onClick.AddListener(async () => await FileDownloadAsync());
     }
 
     #region 파일 업로드 & 다운로드
@@ -80,6 +82,28 @@ public class CloudSaveManager : MonoBehaviour
             Debug.Log(e);
         }
 
+    }
+
+    private async Task FileDownloadAsync()
+    {
+        List<FileItem> files = await CloudSaveService.Instance.Files.Player.ListAllAsync();
+        
+        // 파일목록
+        for (int i = 0; i < files.Count; i++)
+        {
+            Debug.Log(files[i].Key);
+        }
+        
+        // 파일 다운로드
+        byte[] file = await CloudSaveService.Instance.Files.Player.LoadBytesAsync("SCREEN_SHOT");
+        
+        // 바이트 배열 -> 텍스처 (Texture2D)
+        // 텍스처 파일 생성
+        Texture2D texture = new Texture2D(2, 2);
+        // 텍스처 파일에 Byte 로드
+        texture.LoadImage(file);
+
+        _downloadImage.texture = texture;
     }
 
     #endregion
